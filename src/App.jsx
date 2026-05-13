@@ -1,7 +1,7 @@
 import "./App.css";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp";
-import ErrorPage from "./pages/Error";
+import ErrorPage from "./pages/error";
 import {
   createBrowserRouter,
   RouterProvider,
