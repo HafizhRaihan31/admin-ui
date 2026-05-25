@@ -1,6 +1,6 @@
 import React from 'react'
-import AuthLayout from '../assets/components/Layouts/AuthLayout'
-import FormSignIn from '../assets/components/Fragments/FormSignIn'
+import AuthLayout from '../components/Layouts/AuthLayout'
+import FormSignIn from '../components/Fragments/FormSignIn'
 function SignIn() {
   return (
     <AuthLayout >
