@@ -7,7 +7,14 @@ import CardUpcomingBill from "../components/Fragments/CardUpcomingBill";
 import CardRecentTransaction from "../components/Fragments/CardRecentTransaction";
 import CardStatistics from "../components/Fragments/CardStatistics";
 import CardBalance from "../components/Fragments/CardBalance";
-import { transactions, bills, expensesBreakdowns } from "../data";
+import {
+  transactions,
+  bills,
+  expensesBreakdowns,
+  balances,
+  goals,
+  expensesStatistics,
+} from "../data";
 
 function DashboardPage() {
   return (
@@ -16,10 +23,10 @@ function DashboardPage() {
 
         {/* Baris 1 — 3 card masing-masing 4 kolom */}
         <div className="sm:col-span-4">
-          <CardBalance />
+          <CardBalance data={balances} />
         </div>
         <div className="sm:col-span-4">
-          <CardGoal />
+          <CardGoal data={goals} />
         </div>
         <div className="sm:col-span-4">
           <CardUpcomingBill data={bills} />
@@ -32,7 +39,7 @@ function DashboardPage() {
         </div>
         {/* Statistics: 8 kolom */}
         <div className="sm:col-span-8">
-          <CardStatistics />
+          <CardStatistics data={expensesStatistics} />
         </div>
         {/* Expenses Breakdown: 8 kolom */}
         <div className="sm:col-span-8">
