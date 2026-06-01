@@ -1,6 +1,13 @@
 import React from "react";
 import MainLayout from "../components/Layouts/MainLayout";
 import Card from "../components/Elements/Card";
+import CardExpenseBreakdown from "../components/Fragments/CardExpenseBreakdown";
+import CardGoal from "../components/Fragments/CardGoal";
+import CardUpcomingBill from "../components/Fragments/CardUpcomingBill";
+import CardRecentTransaction from "../components/Fragments/CardRecentTransaction";
+import CardStatistics from "../components/Fragments/CardStatistics";
+import CardBalance from "../components/Fragments/CardBalance";
+import { transactions, bills, expensesBreakdowns } from "../data";
 
 function DashboardPage() {
   return (
@@ -9,47 +16,27 @@ function DashboardPage() {
 
         {/* Baris 1 — 3 card masing-masing 4 kolom */}
         <div className="sm:col-span-4">
-          <Card
-            title="Total Balance"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, autem porro asperiores numquam sed veritatis debitis beatae amet laboriosam fuga pariatur sapiente suscipit culpa facere voluptatem. Repellat asperiores doloribus earum!"
-          />
+          <CardBalance />
         </div>
         <div className="sm:col-span-4">
-          <Card
-            title="Goals"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, autem porro asperiores numquam sed veritatis debitis beatae amet laboriosam fuga pariatur sapiente suscipit culpa facere voluptatem. Repellat asperiores doloribus earum!"
-          />
+          <CardGoal />
         </div>
         <div className="sm:col-span-4">
-          <Card
-            title="Upcoming Bill"
-            link="/bills"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, autem porro asperiores numquam sed veritatis debitis beatae amet laboriosam fuga pariatur sapiente suscipit culpa facere voluptatem. Repellat asperiores doloribus earum!"
-          />
+          <CardUpcomingBill data={bills} />
         </div>
 
         {/* Baris 2 & 3 */}
         {/* Recent Transactions: 4 kolom, rentang 2 baris */}
         <div className="sm:col-span-4 sm:row-span-2">
-          <Card
-            title="Recent Transactions"
-            link="/transactions"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, autem porro asperiores numquam sed veritatis debitis beatae amet laboriosam fuga pariatur sapiente suscipit culpa facere voluptatem. Repellat asperiores doloribus earum!"
-          />
+          <CardRecentTransaction data={transactions} />
         </div>
         {/* Statistics: 8 kolom */}
         <div className="sm:col-span-8">
-          <Card
-            title="Statistics"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, autem porro asperiores numquam sed veritatis debitis beatae amet laboriosam fuga pariatur sapiente suscipit culpa facere voluptatem. Repellat asperiores doloribus earum!"
-          />
+          <CardStatistics />
         </div>
         {/* Expenses Breakdown: 8 kolom */}
         <div className="sm:col-span-8">
-          <Card
-            title="Expenses Breakdown"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, autem porro asperiores numquam sed veritatis debitis beatae amet laboriosam fuga pariatur sapiente suscipit culpa facere voluptatem. Repellat asperiores doloribus earum!"
-          />
+          <CardExpenseBreakdown data={expensesBreakdowns} />
         </div>
 
       </div>
