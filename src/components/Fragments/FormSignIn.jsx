@@ -1,31 +1,42 @@
-import React from "react";
-import LabeledInput from "../Elements/LabeledInput";
-import CheckBox from "../Elements/CheckBox";
-import Button from "../Elements/Button";
 import { Link } from "react-router-dom";
+import Button from "../Elements/Button";
+import CheckBox from "../Elements/CheckBox";
+import LabeledInput from "../Elements/LabeledInput";
+import { useState } from "react";
 
-function FormSignIn() {
+function FormSignIn({ onSubmit }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(email, password);
+  };
+
   return (
     <>
       {/* form start */}
       <div className="mt-16">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <LabeledInput
-              label="Email address"
+              label="Email Address"
               id="email"
               type="email"
               placeholder="hello@example.com"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-6">
             <LabeledInput
               label="Password"
-              id="password"
+              id="Password"
               type="password"
-              placeholder="********"
+              placeholder="************"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -36,14 +47,14 @@ function FormSignIn() {
               name="status"
             />
           </div>
-          <Button> Login </Button>
+          <Button>Login</Button>
         </form>
       </div>
       {/* form end */}
       {/* teks start */}
       <div className="my-9 px-7 flex flex-col justify-center items-center text-xs text-gray-03">
         <div className="border border-gray-05 w-full"></div>
-        <div className="px-2 bg-special-mainBg absolute"> or sign in with</div>
+        <div className="bg-special-mainBg absolute px-2"> or sign in with</div>
       </div>
       {/* teks end */}
       {/* sign in with google start */}
@@ -81,7 +92,7 @@ function FormSignIn() {
       {/* sign in with google end */}
       {/* link start */}
       <div className="flex justify-center">
-        <Link to="/register" className="text-primary font-bold">
+        <Link to="/register" className="text-primary text-sm font-bold">
           Create an account
         </Link>
       </div>
