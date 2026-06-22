@@ -9,8 +9,8 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import DashboardPage from "./pages/Dashboard";
-import BalancePage from "./pages/Balance";
+import DashboardPage from "./pages/dashboard";
+import BalancePage from "./pages/balance";
 import { AuthContext } from "./context/authContext";
 
 function App() {
