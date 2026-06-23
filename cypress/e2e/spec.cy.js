@@ -1,0 +1,79 @@
+describe("User login", () => {
+  it("should allow user to log in with valid credentials", () => {
+    cy.viewport(550,750);
+    cy.visit("http://localhost:5173/");
+    cy.url().should("include", "/login");
+
+    cy.get("input#email")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "hello@example.com")
+      .type("hello@example.com")
+      .should("have.value", "hello@example.com");
+
+    cy.get("input#password")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "*************")
+      .type("123456")
+      .should("have.value", "123456");
+
+    cy.get("button").contains("Login").click();
+
+    cy.get("nav");    
+    cy.get("header");
+    
+    cy.wait(5000);
+  });
+
+  it("should not allow user to log in with invalid credentials", () => {
+    cy.viewport(550,750);
+    cy.visit("http://localhost:5173/");
+    cy.url().should("include", "/login");
+
+    cy.get("input#email")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "hello@example.com")
+      .type("hello@example.com")
+      .should("have.value", "hello@example.com");
+
+    cy.get("input#password")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "*************")
+      .type("123")
+      .should("have.value", "123");
+
+    cy.get("button").contains("Login").click();
+
+    cy.get("div").contains("Wrong Password");
+  }); 
+
+  describe("User register", () => {
+  it("should allow user to register in register page", () => {
+    cy.viewport(550,750);
+    cy.visit("http://localhost:5173");
+    cy.wait(2000);
+    cy.url().should("include", "/login");
+    cy.wait(2000);
+    cy.contains("a", "Create an account").click();
+    cy.wait(2000);
+    cy.get("input#name")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "Name")
+      .type("Hafizh")
+      .should("have.value", "Hafizh");
+
+    cy.get("input#email")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "hello@example.com")
+      .type("hello@example.com")
+      .should("have.value", "hello@example.com");
+
+    cy.get("input#password")
+      .should("be.visible")
+      .should("have.attr", "placeholder", "*************")
+      .type("123456")
+      .should("have.value", "123456");
+
+    cy.wait(5000);
+  });
+});
+});

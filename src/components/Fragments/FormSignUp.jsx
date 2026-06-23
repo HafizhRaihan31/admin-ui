@@ -37,7 +37,7 @@ function FormSignUp() {
               label="Password"
               id="password"
               type="password"
-              placeholder="********"
+              placeholder="*************"
               name="password"
             />
           </div>
